@@ -8,8 +8,8 @@
     --font-large: 4.0rem;  /* 40px - Hero Main Title */
 
     /* 3 Strict Colors */
-    --color-bg: #fcfcfc;     /* Clean Off-White */
-    --color-text: #1a1a1a;   /* Rich Charcoal */
+    --color-bg: #000000;     /* Clean Off-White */
+    --color-text: #fffafa;   /* Rich Charcoal */
     --color-accent: #4a6170; /* Muted Slate Blue */
 }
 
@@ -95,10 +95,33 @@ body {
     text-decoration: none;
 }
 
+.menu-btn {
+    display: block; /* Hidden by default, only shown on mobile */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.menu-icon-img {
+    width: 3.2rem;
+    height: 3.2rem;
+}
+
+.nav-links {
+    display: flex;         /* Sits the li elements side-by-side horizontally */
+    list-style: none;      /* Strips away the default bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-left: 2.4rem;
+}
+
 .nav-links a {
     color: var(--color-text);
     text-decoration: none;
-    margin-left: 2.4rem;
+    margin-left: 2.4rem;   /* Pushes the items apart cleanly */
+    display: inline-block;
 }
 
 .nav-links a:hover {
@@ -151,4 +174,111 @@ body {
     padding: 6.4rem 0;
     border-top: 1px solid var(--color-accent);
     opacity: 0.7;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Media Queries)
+   ========================================================================== */
+
+/* 1. Tablet Adjustments (Less than 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 2.4rem; /* Reduce side padding for narrower viewports */
+    }
+    
+    .hero-section {
+        padding: 12.0rem 0 8.0rem 0; /* Tighten hero vertical space */
+    }
+    
+    .section {
+        padding: 6.4rem 0;
+    }
+}
+
+/* 2. Mobile Layout & Toggle Setup (Less than 425px) */
+@media (max-width: 420px) {
+    /* Hide the text links by default on mobile viewports */
+    .nav-links {
+        display: none; 
+        flex-direction: column; /* Ready to align vertically when opened */
+        width: 100%;
+        position: absolute;
+        top: 8.0rem;
+        left: 0;
+        background-color: var(--color-bg);
+        padding: 2.0rem 4.0rem;
+        border-bottom: 1px solid var(--color-accent);
+    }
+
+    /* Adjust the specific spacing of layout elements for vertical drop */
+    .nav-links li {
+        margin: 1.6rem 0;
+    }
+    
+    .nav-links a {
+        margin-left: 0; /* Reset desktop left margins */
+    }
+
+    /* Reveal the menu image button explicitly */
+    .menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.4rem;
+    }
+
+    /* Keep the image icon proportional using our layout constraints */
+    .menu-icon-img {
+        width: 3.2rem;
+        height: 3.2rem;
+        /* Force the image to match our strict typography text color */
+        /* If using a black SVG, this filters it to match your accent rules if needed */
+    }
+
+    /* Active helper class: This will be triggered later via JS to reveal the menu */
+    .nav-links.is-active {
+        display: flex;
+    }
+}/* 2. Mobile Layout & Toggle Setup (Less than 425px) */
+@media (max-width: 425px) {
+    /* Tighten navbar container setup for mobile spacing */
+    .navbar nav {
+        position: relative;
+        flex-wrap: wrap; /* Allows dropdown to wrap underneath the logo row */
+    }
+
+    /* Force hide the links row with a direct selector */
+    header.navbar #nav-menu.nav-links {
+        display: none; 
+        flex-direction: column;   /* Stacks links from top to bottom vertically */
+        width: 100%;
+        padding: 2.0rem 0;
+        margin-top: 1.6rem;       /* Pushes container below the logo line */
+    }
+
+    /* Add vertical margins between stacked links */
+    .nav-links li {
+        margin: 1.2rem 0;
+        width: 100%;
+        text-align: center;       /* Centers text inside the top-to-bottom stack */
+    }
+    
+    .nav-links a {
+        margin-left: 0;           /* Resets the horizontal desktop margin */
+        display: block;
+    }
+
+    /* Reveal our image toggle icon button */
+    .menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* THE FIX: When active class is added by JS, force it to display vertically */
+    header.navbar #nav-menu.nav-links.is-active {
+        display: flex !important;
+    }
 }

@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimal Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Header Navigation -->
     <header class="navbar">
         <nav>
             <a href="#hero" class="nav-brand">Portfolio.</a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
+
+            <!-- Mobile Menu Toggle Button (hidden by default on desktop) -->
+            <button id="menu-toggle" class="menu-btn" aria-label="Toggle navigation menu">
+                <img src="skeleton-troll-face-2.png" alt="Menu Icon" class="menu-icon-img">
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -34,7 +42,9 @@
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <p class="body-text">
-                    I believe in simplicity, performance, and writing clean code. By stripping away unnecessary clutter, I focus on building functional, highly accessible interfaces that deliver an exceptional user experience.
+                    I believe in simplicity, performance, and writing clean code. By stripping away unnecessary clutter,
+                    I focus on building functional, highly accessible interfaces that deliver an exceptional user
+                    experience.
                 </p>
             </div>
         </section>
@@ -46,11 +56,13 @@
                 <div class="project-grid">
                     <div class="project-card">
                         <h3 class="project-name">Project One</h3>
-                        <p class="body-text">A minimal web application built with speed and lightweight layouts in mind.</p>
+                        <p class="body-text">A minimal web application built with speed and lightweight layouts in mind.
+                        </p>
                     </div>
                     <div class="project-card">
                         <h3 class="project-name">Project Two</h3>
-                        <p class="body-text">An open-source interface component system focusing on strict aesthetic rules.</p>
+                        <p class="body-text">An open-source interface component system focusing on strict aesthetic
+                            rules.</p>
                     </div>
                 </div>
             </div>
@@ -75,5 +87,8 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
+    
 </body>
+
 </html>
