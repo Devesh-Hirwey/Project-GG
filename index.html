@@ -1,94 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimal Portfolio</title>
+    <title>Document</title>
+    
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <!-- Header Navigation -->
-    <header class="navbar">
-        <nav>
-            <a href="#hero" class="nav-brand">Portfolio.</a>
-
-            <!-- Mobile Menu Toggle Button (hidden by default on desktop) -->
-            <button id="menu-toggle" class="menu-btn" aria-label="Toggle navigation menu">
-                <img src="skeleton-troll-face-2.png" alt="Menu Icon" class="menu-icon-img">
-            </button>
-
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="container">
-                <h1 class="hero-title">Hi, I'm a developer crafting clean, minimalist web experiences.</h1>
-                <a href="#projects" class="btn">View My Work</a>
-            </div>
-        </section>
-
-        <!-- About Me Section -->
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <p class="body-text">
-                    I believe in simplicity, performance, and writing clean code. By stripping away unnecessary clutter,
-                    I focus on building functional, highly accessible interfaces that deliver an exceptional user
-                    experience.
-                </p>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title">Selected Projects</h2>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <h3 class="project-name">Project One</h3>
-                        <p class="body-text">A minimal web application built with speed and lightweight layouts in mind.
-                        </p>
-                    </div>
-                    <div class="project-card">
-                        <h3 class="project-name">Project Two</h3>
-                        <p class="body-text">An open-source interface component system focusing on strict aesthetic
-                            rules.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="body-text">
-                    Whether you have an upcoming project or just want to chat about development, feel free to reach out.
-                </p>
-                <a href="mailto:your.email@example.com" class="btn">Say Hello</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="body-text">&copy; 2026 Designed & Built Cleanly.</p>
+    <!-- Navigation Bar -->
+    <nav>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
         </div>
-    </footer>
 
-    <script src="script.js"></script>
-    
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <!-- Hamburger Menu -->
+         <div class="hamburger" onclick="toggleMenu()">
+            X
+        </div>
+    </nav>
 </body>
-
 </html>

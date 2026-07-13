@@ -1,284 +1,90 @@
-/* ==========================================================================
-   DESIGN SYSTEM & VARIABLES
-   ========================================================================== */
-:root {
-    /* 3 Strict Sizes (Using 62.5% root scaling so 1rem = 10px) */
-    --font-small: 1.6rem;  /* 16px - Body text */
-    --font-medium: 2.4rem; /* 24px - Section Headings & Subtitles */
-    --font-large: 4.0rem;  /* 40px - Hero Main Title */
-
-    /* 3 Strict Colors */
-    --color-bg: #000000;     /* Clean Off-White */
-    --color-text: #fffafa;   /* Rich Charcoal */
-    --color-accent: #4a6170; /* Muted Slate Blue */
-}
-
-/* ==========================================================================
-   BASE & RESET RULES
-   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
 }
 
-html {
-    /* 62.5% of browser default (16px) makes 1rem = 10px exactly */
-    font-size: 62.5%;
-    scroll-behavior: smooth;
-    background-color: var(--color-bg);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+:root {
+    --background-color: #0000009e;
+    --nav-background-color: #000000e8;
+    --text-color: #fff;
+    --text-hover-color: gold;
 }
 
 body {
-    color: var(--color-text);
-    line-height: 1.6;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    font-size: 1.6rem
 }
 
-/* Container for scannable layout boundaries */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 4.0rem;
-}
-
-/* ==========================================================================
-   TYPOGRAPHY RULES (Enforcing our 3 font sizes)
-   ========================================================================== */
-.hero-title {
-    font-size: var(--font-large);
-    font-weight: 700;
-    letter-spacing: -0.05em;
-    line-height: 1.2;
-    margin-bottom: 3.2rem;
-}
-
-.section-title, 
-.project-name,
-.nav-brand {
-    font-size: var(--font-medium);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-}
-
-.section-title {
-    margin-bottom: 2.4rem;
-}
-
-.body-text,
-.nav-links a,
-.btn {
-    font-size: var(--font-small);
-    font-weight: 400;
-}
-
-/* ==========================================================================
-   LAYOUT COMPONENTS
-   ========================================================================== */
-
-/* Navbar styling using color-accent for interaction */
-.navbar {
-    padding: 3.2rem 0;
-}
-
-.navbar nav {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 4.0rem;
+nav {
+    background-color: var(--nav-background-color);
+    box-shadow: .3rem .3rem .5rem var(--nav-background-color);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-.nav-brand {
-    color: var(--color-text);
-    text-decoration: none;
-}
-
-.menu-btn {
-    display: block; /* Hidden by default, only shown on mobile */
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-.menu-icon-img {
-    width: 3.2rem;
-    height: 3.2rem;
+.logo img {
+    height: 5rem;
+    width: 5rem;
+    object-fit: cover;
+    margin-left: 2rem;
+    padding: 1rem;
 }
 
 .nav-links {
-    display: flex;         /* Sits the li elements side-by-side horizontally */
-    list-style: none;      /* Strips away the default bullet points */
-    padding: 0;
-    margin: 0;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .nav-links li {
-    margin-left: 2.4rem;
+    height: 5rem;
 }
-
-.nav-links a {
-    color: var(--color-text);
+.nav-links li a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 2rem;
+    color: var(--text-color);
     text-decoration: none;
-    margin-left: 2.4rem;   /* Pushes the items apart cleanly */
-    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 5rem;
 }
 
-.nav-links a:hover {
-    color: var(--color-accent);
+.nav-links li a:hover {
+    background-color: transparent;
+    color: var(--text-hover-color);
+    transition: .7s;
+    text-shadow: 0 0 1rem var(--text-hover-color);
 }
 
-/* Sections structure */
-.hero-section {
-    padding: 16.0rem 0 12.0rem 0;
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin: auto;
+    font-size: 5rem;
+    color: var(--text-color);
 }
-
-.section {
-    padding: 8.0rem 0;
-}
-
-/* Clean border setup using only our allowed accent color */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3.2rem;
-    margin-top: 1.6rem;
-}
-
-.project-card {
-    border-left: 2px solid var(--color-accent);
-    padding-left: 2.0rem;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
-}
-
-.project-name {
-    margin-bottom: 0.8rem;
-}
-
-/* Button & interactive components using our color matrix */
-.btn {
-    display: inline-block;
-    color: var(--color-bg);
-    background-color: var(--color-accent);
-    text-decoration: none;
-    padding: 1.2rem 2.4rem;
-    border-radius: 4px;
-}
-
-.btn:hover {
-    background-color: var(--color-text);
-}
-
-.footer {
-    padding: 6.4rem 0;
-    border-top: 1px solid var(--color-accent);
-    opacity: 0.7;
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN (Media Queries)
-   ========================================================================== */
-
-/* 1. Tablet Adjustments (Less than 768px) */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 2.4rem; /* Reduce side padding for narrower viewports */
-    }
-    
-    .hero-section {
-        padding: 12.0rem 0 8.0rem 0; /* Tighten hero vertical space */
-    }
-    
-    .section {
-        padding: 6.4rem 0;
-    }
-}
-
-/* 2. Mobile Layout & Toggle Setup (Less than 425px) */
-@media (max-width: 420px) {
-    /* Hide the text links by default on mobile viewports */
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
     .nav-links {
-        display: none; 
-        flex-direction: column; /* Ready to align vertically when opened */
-        width: 100%;
-        position: absolute;
-        top: 8.0rem;
-        left: 0;
-        background-color: var(--color-bg);
-        padding: 2.0rem 4.0rem;
-        border-bottom: 1px solid var(--color-accent);
-    }
-
-    /* Adjust the specific spacing of layout elements for vertical drop */
-    .nav-links li {
-        margin: 1.6rem 0;
+        display: none; /* Hide by default on mobile */
+        flex-direction: column;
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: #333;
     }
     
-    .nav-links a {
-        margin-left: 0; /* Reset desktop left margins */
-    }
-
-    /* Reveal the menu image button explicitly */
-    .menu-btn {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0.4rem;
-    }
-
-    /* Keep the image icon proportional using our layout constraints */
-    .menu-icon-img {
-        width: 3.2rem;
-        height: 3.2rem;
-        /* Force the image to match our strict typography text color */
-        /* If using a black SVG, this filters it to match your accent rules if needed */
-    }
-
-    /* Active helper class: This will be triggered later via JS to reveal the menu */
-    .nav-links.is-active {
+    /* When JavaScript adds the 'active' class, show the sidebar */
+    .nav-links.active {
         display: flex;
-    }
-}/* 2. Mobile Layout & Toggle Setup (Less than 425px) */
-@media (max-width: 425px) {
-    /* Tighten navbar container setup for mobile spacing */
-    .navbar nav {
-        position: relative;
-        flex-wrap: wrap; /* Allows dropdown to wrap underneath the logo row */
-    }
-
-    /* Force hide the links row with a direct selector */
-    header.navbar #nav-menu.nav-links {
-        display: none; 
-        flex-direction: column;   /* Stacks links from top to bottom vertically */
-        width: 100%;
-        padding: 2.0rem 0;
-        margin-top: 1.6rem;       /* Pushes container below the logo line */
-    }
-
-    /* Add vertical margins between stacked links */
-    .nav-links li {
-        margin: 1.2rem 0;
-        width: 100%;
-        text-align: center;       /* Centers text inside the top-to-bottom stack */
-    }
-    
-    .nav-links a {
-        margin-left: 0;           /* Resets the horizontal desktop margin */
-        display: block;
-    }
-
-    /* Reveal our image toggle icon button */
-    .menu-btn {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-
-    /* THE FIX: When active class is added by JS, force it to display vertically */
-    header.navbar #nav-menu.nav-links.is-active {
-        display: flex !important;
     }
 }
